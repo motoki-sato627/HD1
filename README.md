@@ -28,7 +28,7 @@ cd preprocess_data
 How to run
 ------
   
-```python raster_to_json.py --path ~/Desktop/dataset/msd_data```
+```python raster_to_json.py --path ~/Desktop/modified-swiss-dwellings-v1-train_50/graph_out_50```
 
 Output data format
 ------
