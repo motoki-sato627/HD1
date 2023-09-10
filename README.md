@@ -1,54 +1,41 @@
-# preprocess_data
+# HouseDiffusion
 
-
-Code and instructions for converting msd dataset to house diffusion data format. 
-
-
- 
-
-Input Data
-------
-Data: [msd dataset](https://www.kaggle.com/datasets/caspervanengelenburg/modified-swiss-dwellings) 
-<br/>
- 
-Requirtments
-------
-   
-```
-pip install argparse
-pip install numpy
-pip install matplotlib
-pip install shapely
-pip install descartes
-git clone https://github.com/motoki-sato627/preprocess_data.git
-cd preprocess_data
+## Installation
+**1. Clone our repo and install the requirements:**
 
 ```
-
-How to run
-------
-  
-```python raster_to_json.py --path ~/Desktop/modified-swiss-dwellings-v1-train_50/graph_out_50```
-
-Output data format
-------
-
-The data file (e.g., /sample_output/0.json).
+git clone https://github.com/motoki-sato627/HD.git
+cd HD
+pip install -r requirements.txt
+pip install -e .
+mkdir processed_rplan
+```
+**2. Download the dataset and create the datasets directory**
 
 ```
-ROOM_CLASS = {"living_room": 1, "kitchen": 2, "bedroom": 3, "bathroom": 4, "balcony": 5, "entrance": 6, "dining room": 7, "study room": 8,
-              "storage": 10 , "front door": 15, "unknown": 16, "interior_door": 17}
-              
-              
-# having room type in it
-"room_type": [3, 4, 1, 3 ]
+house_diffusion
+├── datasets
+│   ├── rplan
+|   |   └── 0.json
+|   |   └── 1.json
+|   |   └── ...
+|   └── list.txt
+└── guided_diffusion
+└── scripts
+└── ...
+```
 
-#bounding boxes per room        
-"boxes: [[72.0, 161.0, 124.0, 220.0], [72.0, 130.0, 107.0, 157.0], [111.0, 28.0, 184.0, 203.0], [72.0, 87.0, 124.0, 126.0]] 
+## Running the code
 
-#first four entry are per list are rooms edges and 4th and 6th are showing what room type is on each side of edge 
-"edges":[72.0, 161.0, 72.0, 220.0, 3, 0], ...,[107.0, 130.0, 72.0, 130.0, 4, 0], [148.0, 28.0, 148.0, 87.0, 1, 2]] 
+**1. Training**
 
-#room indexes that are on each side of the edges
-"ed_rm":[0], [0], [0], [0, 2], ..., [2], [2, 3], [2, 1], [2, 0], [2]] 
+You can run a single experiment using the following command:
+```
+python image_train.py --dataset rplan --batch_size 32 --set_name train --target_set 8
+```
+**2. Sampling**
+To sample floorplans, you can run the following command from inside of the `scripts` directory. To provide different visualizations, please see the `save_samples` function from `scripts/image_sample.py`
+
+```
+python image_sample.py --dataset rplan --batch_size 32 --set_name eval --target_set 8 --model_path /Users/satomotoki/Desktop/model250000.pt --num_samples 64
 ```
