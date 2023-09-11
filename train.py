@@ -12,7 +12,7 @@ def train(model, a, b, a_, b_, T, ori_coords, rms):
       e=list(e)
       coords.append(np.sqrt(a_[t])*ori_coords[i]+np.sqrt(b_[t])*e)
     coords[:][-1]=coords[:][0]
-    features=embedding(num, t, coords, rms)
+    features=embedding(t, coords, rms)
     model.fit(features, e, epochs=100, batch_size=min(32,L))
   model.save("/Users/satomotoki/Desktop/model/file")
   
