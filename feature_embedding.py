@@ -28,7 +28,7 @@ def embedding(t, coords, rms, edges, n):
     for i in range(n):
         for j in range(edges[i]):
             c=[]
-            if j!=edges[i]-1
+            if j!=edges[i]-1:
                 for k in range(8):
                     c_ = (k*coords[cnt] + (7-k)*coords[cnt+1])/7
                     c.append(c_)
