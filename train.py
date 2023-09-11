@@ -5,6 +5,7 @@ from feature_embedding import data_load, embedding
 def train(model, a, b, a_, b_, T, ori_coords, rms):
   L=len(ori_coors)
   for t in renge(T):
+    t+=1
     coords=[]
     for i in range(L):
       e=np.random.normal(0, 1, (len(ori_coords[i]),2))
