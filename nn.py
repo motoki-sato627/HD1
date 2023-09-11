@@ -4,6 +4,7 @@ from keras.optimizers import Adam
 import numpy as np
 
 def define_model():
+    input_shape=106
     model = keras.Sequential([
         layers.Input(shape=(input_shape,)),
         layers.Dense(512,activation='liner'),
