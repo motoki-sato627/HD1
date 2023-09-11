@@ -7,7 +7,7 @@ def define_model():
     input_shape=106
     model = keras.Sequential([
         layers.Input(shape=(input_shape,)),
-        layers.Dense(512,activation='liner'),
+        layers.Dense(512,activation='linear'),
         layers.BatchNormalization(),
         layers.Dropout(0.2),
         layers.Dense(512,activation='relu'),
