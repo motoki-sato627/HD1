@@ -18,7 +18,7 @@ def data_load(num):
         rms.append(rm)
     return coords, rms
 
-def embedding(num, t, coords, rms):
+def embedding(t, coords, rms):
     C = []
     for i in range(len(coords)):
         for j in range(len(coords[i])-1):
