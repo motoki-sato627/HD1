@@ -14,4 +14,7 @@ def sample(a, b, a_, b_):
       coords.append(list(e))
       rm = G.nodes[i]['room_type']
       rms.append(rm)
+    for t in range(T):
+      t=1000-t
+      if t==1
     
