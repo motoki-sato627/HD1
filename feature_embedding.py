@@ -20,8 +20,8 @@ def data_load(num):
 
 def embedding(num, t, coords, rms):
     C = []
-    for i in range(coords.shape[0]):
-        for j in range(coords.shape[1]-1):
+    for i in range(len(coords)):
+        for j in range(len(coords[i])-1):
             c=[]
             for k in range(8):
                 c_ = (k*coords[i][j] + (7-k)*coords[i][j+1])/7
