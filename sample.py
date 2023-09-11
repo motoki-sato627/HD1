@@ -1,6 +1,6 @@
-
+import tensorflow as tf
 def sample(a, b, a_, b_):
-  model=tf.keras.models.load_model("/path/to/save_dir")
+  model=tf.keras.models.load_model("/Users/satomotoki/Desktop/model/file")
   for num in range(1):
     with open('/Users/satomotoki/Desktop/modified-swiss-dwellings-v1-train_50/graph_out_50/'+str(num)+'.pickle', 'rb') as file:
         G = pickle.load(file)
@@ -18,5 +18,6 @@ def sample(a, b, a_, b_):
       rms.append(rm)
     for t in range(T):
       t=1000-t
-      pre_e=
+      
+      
     
