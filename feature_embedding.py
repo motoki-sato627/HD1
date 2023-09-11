@@ -17,8 +17,8 @@ def data_load(num):
         edges.append(len(coord)-1)
         for j in range(len(coord)-1):
             coords.append(coord)
-            rm = G.nodes[i]['room_type']
-            rms.append(rm)
+        rm = G.nodes[i]['room_type']
+        rms.append(rm)
     coords=np.array(coords)
     return coords, rms, edges, n
 
@@ -26,9 +26,9 @@ def embedding(t, coords, rms, edges, n):
     C = []
     cnt=0
     for i in range(n):
-        for j in range(edges):
+        for j in range(edges[i]):
             c=[]
-            if j!=edges-1
+            if j!=edges[i]-1
                 for k in range(8):
                     c_ = (k*coords[cnt] + (7-k)*coords[cnt+1])/7
                     c.append(c_)
@@ -38,7 +38,7 @@ def embedding(t, coords, rms, edges, n):
                     c.append(c_)
             c=np.array(c)
             R=np.zeros(25)
-            R[rms[cnt]]=1
+            R[rms[i]]=1
             c=np.hstack(c, R)
             i1=np.zeros(32)
             i1[i]=1
