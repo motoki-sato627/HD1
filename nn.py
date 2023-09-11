@@ -29,7 +29,7 @@ def params(T):
   b=np.sin(x)
   a=1-b
   a_=np.zeros(T)
-  for i in tange(T):
+  for i in range(T):
     if i==0:
       a_[i]=a[i]
     else:
