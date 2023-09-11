@@ -8,6 +8,9 @@ def train(model, a, b, a_, b_, T, ori_coords, rms):
     e=np.random.normal(0, 1, (L,2))
     coords=np.sqrt(a_[t])*ori_coords+np.sqrt(b_[t])*e
     features=embedding(num, t, coords, rms)
+    model.fit(features, e, epochs=100, batch_size=min(32,L))
+  model.save("/Users/satomotoki/Desktop/model/file")
+  
     
 
 def main():
