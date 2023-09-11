@@ -10,25 +10,35 @@ def data_load(num):
     n = G.number_of_nodes()
     coords = []
     rms = []
+    edges=[]
     for i in range(n):
         poly = Polygon(G.nodes[i]['geometry'])
         coord = list(poly.exterior.coords)
-        coords.append(coord)
-        rm = G.nodes[i]['room_type']
-        rms.append(rm)
-    return coords, rms
+        edges.append(len(coord)-1)
+        for j in range(len(coord)-1):
+            coords.append(coord)
+            rm = G.nodes[i]['room_type']
+            rms.append(rm)
+    coords=np.array(coords)
+    return coords, rms, edges, n
 
-def embedding(t, coords, rms):
+def embedding(t, coords, rms, edges, n):
     C = []
-    for i in range(len(coords)):
-        for j in range(len(coords[i])-1):
+    cnt=0
+    for i in range(n):
+        for j in range(edges):
             c=[]
-            for k in range(8):
-                c_ = (k*coords[i][j] + (7-k)*coords[i][j+1])/7
-                c.append(c_)
+            if j!=edges-1
+                for k in range(8):
+                    c_ = (k*coords[cnt] + (7-k)*coords[cnt+1])/7
+                    c.append(c_)
+            else:
+                for k in range(8):
+                    c_ = (k*coords[cnt] + (7-k)*coords[cnt-j])/7
+                    c.append(c_)
             c=np.array(c)
             R=np.zeros(25)
-            R[rms[i]]=1
+            R[rms[cnt]]=1
             c=np.hstack(c, R)
             i1=np.zeros(32)
             i1[i]=1
@@ -38,5 +48,6 @@ def embedding(t, coords, rms):
             c=np.hstack(c, j1)
             c=np.hstack(c, t)
             C.append(c)
+            cnt+=1
     C=np.array(C)
     return C
