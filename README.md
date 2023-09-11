@@ -31,11 +31,11 @@ house_diffusion
 
 You can run a single experiment using the following command:
 ```
-python image_train.py --dataset rplan --batch_size 32 --set_name train --target_set 8
+python train.py 
 ```
 **2. Sampling**
 To sample floorplans, you can run the following command from inside of the `scripts` directory. To provide different visualizations, please see the `save_samples` function from `scripts/image_sample.py`
 
 ```
-python image_sample.py --dataset rplan --batch_size 32 --set_name eval --target_set 8 --model_path /Users/satomotoki/Desktop/model250000.pt --num_samples 64
+python sample.py
 ```
