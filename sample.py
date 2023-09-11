@@ -9,8 +9,9 @@ def sample(a, b, a_, b_):
       poly = Polygon(G.nodes[i]['geometry'])
       coord = list(poly.exterior.coords)
       l=len(coord)
-      e=np.
-      coords.append(coord)
+      e=np.random.normal(0, 1, (l,2))
+      e[-1]=e[0]
+      coords.append(list(e))
       rm = G.nodes[i]['room_type']
       rms.append(rm)
     
