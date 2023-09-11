@@ -34,5 +34,5 @@ def params(T):
     else:
       a_[i]=a_[i-1]*a[i]
   b_=1-a_
-  return a, b, a_ b_
+  return a, b, a_, b_
   
