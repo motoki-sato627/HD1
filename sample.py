@@ -6,7 +6,7 @@ from shapely.geometry import Polygon
 from shapely.geometry import Point
 from feature_embedding import data_load, embedding
 
-def sample(a, b, a_, b_):
+def sample(a, b, a_, b_, T):
   model=tf.keras.models.load_model("/Users/satomotoki/Desktop/model/file")
   for num in range(1):
     with open('/Users/satomotoki/Desktop/modified-swiss-dwellings-v1-train_50/graph_out_50/'+str(num)+'.pickle', 'rb') as file:
@@ -101,3 +101,11 @@ def visialaze(coords, rms, edges, n):
   image = Image.fromarray(image_data)
   image.save('/Users/satomotoki/Desktop/output/file')
 
+def main():
+  T=1000
+  a, b, a_, b_=params(T)
+  for num in range(1):
+    sample(model, a, b, a_, b_, T)
+
+if __name__ == "__main__":
+    main()
