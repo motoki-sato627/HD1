@@ -1,4 +1,6 @@
 import tensorflow as tf
+from feature_embedding import data_load, embedding
+
 def sample(a, b, a_, b_):
   model=tf.keras.models.load_model("/Users/satomotoki/Desktop/model/file")
   for num in range(1):
