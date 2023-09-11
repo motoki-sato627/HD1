@@ -21,7 +21,7 @@ def define_model():
     model.compile(optimizer='adam',    
                   loss='mean_squared_error',  
                   metrics='mse')  
-  return model
+    return model
 
 def params(T):
   x=np.arange(0.01, np.pi/2-0.01, (np.pi/2-0.02)/T)
