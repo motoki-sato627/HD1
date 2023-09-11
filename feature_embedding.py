@@ -18,8 +18,7 @@ def data_load(num):
         rms.append(rm)
     return coords, rms
 
-def embedding(num, t):
-    coords, rms = data_load(num)
+def embedding(num, t, coords, rms):
     C = []
     for i in range(coords.shape[0]):
         for j in range(coords.shape[1]-1):
@@ -41,8 +40,3 @@ def embedding(num, t):
             C.append(c)
     C=np.array(C)
     return C
-            
-            
-            
-        
-    
