@@ -16,7 +16,7 @@ def data_load(num):
         coord = list(poly.exterior.coords)
         edges.append(len(coord)-1)
         for j in range(len(coord)-1):
-            coords.append(coord)
+            coords.append(coord[j])
         rm = G.nodes[i]['room_type']
         rms.append(rm)
     coords=np.array(coords)
@@ -39,14 +39,14 @@ def embedding(t, coords, rms, edges, n):
             c=np.array(c)
             R=np.zeros(25)
             R[rms[i]]=1
-            c=np.hstack(c, R)
+            c=np.hstack((c, R))
             i1=np.zeros(32)
             i1[i]=1
-            c=np.hstack(c, i1)
+            c=np.hstack((c, i1))
             j1=np.zeros(32)
             j1[j]=1
-            c=np.hstack(c, j1)
-            c=np.hstack(c, t)
+            c=np.hstack((c, j1))
+            c=np.hstack((c, t))
             C.append(c)
             cnt+=1
     C=np.array(C)
