@@ -106,7 +106,7 @@ def main():
   T=100
   a, b, a_, b_=params(T)
   for num in range(1):
-    sample(model, a, b, a_, b_, T)
+    sample(a, b, a_, b_, T)
 
 if __name__ == "__main__":
     main()
