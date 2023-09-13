@@ -5,6 +5,7 @@ import pickle
 from shapely.geometry import Polygon
 from shapely.geometry import Point
 from feature_embedding import data_load, embedding
+from nn import params
 
 def sample(a, b, a_, b_, T):
   model=tf.keras.models.load_model("/Users/satomotoki/Desktop/model/file")
