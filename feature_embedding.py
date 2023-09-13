@@ -31,11 +31,13 @@ def embedding(t, coords, rms, edges, n):
             if j!=edges[i]-1:
                 for k in range(8):
                     c_ = (k*coords[cnt] + (7-k)*coords[cnt+1])/7
-                    c.append(c_)
+                    c.append(c_[0])
+                    c.append(c_[1])
             else:
                 for k in range(8):
                     c_ = (k*coords[cnt] + (7-k)*coords[cnt-j])/7
-                    c.append(c_)
+                    c.append(c_[0])
+                    c.append(c_[1])
             c=np.array(c)
             R=np.zeros(25)
             R[rms[i]]=1
