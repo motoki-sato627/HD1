@@ -3,7 +3,7 @@ from nn import define_model, params
 from feature_embedding import data_load, embedding
 
 def train(model, a, b, a_, b_, T, ori_coords, rms, edges, n):
-  for t in renge(T):
+  for t in range(T):
     t+=1
     e=np.random.normal(0,1,(ori_coords.shape[0], 2))
     coords=np.sqrt(a_[t])*ori_coords[i]+np.sqrt(b_[t])*e
