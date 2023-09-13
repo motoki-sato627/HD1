@@ -17,7 +17,7 @@ def train(model, a, b, a_, b_, T, ori_coords, rms, edges, n):
     
 
 def main():
-  T=1000
+  T=100
   model=define_model()
   a, b, a_, b_=params(T)
   for num in range(1):
