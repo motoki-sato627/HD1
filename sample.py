@@ -100,7 +100,7 @@ def visialaze(coords, rms, edges, n):
           data[i,j,:]=color[rms[k]]
   image_data = (data).astype(np.uint8)
   image = Image.fromarray(image_data)
-  image.save('/Users/satomotoki/Desktop/output/file')
+  image.save('/Users/satomotoki/Desktop/output/file.png')
 
 def main():
   T=100
