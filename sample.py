@@ -27,7 +27,7 @@ def sample(a, b, a_, b_, T):
     coords=np.array(coords)
     e=np.random.normal(0,1,(coords.shape[0], 2))
     for t in range(T):
-      t=1000-t
+      t=T-t
       features=embedding(t, coords, rms, edges, n)
       pre_e=model.predict(features)
       u=np.random.normal(0,1,(coords.shape[0], 2))
