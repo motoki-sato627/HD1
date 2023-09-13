@@ -53,7 +53,7 @@ def visialaze(coords, rms, edges, n):
   color[11]=[0,255,255]#aqua
   color[12]=[128,0,128]#purple
   color[13]=[255,255,255]#white
-  data=no.zeros((256,256,3))
+  data=np.zeros((256,256,3))
 
   min_x=100000
   max_x=-100000
