@@ -1,4 +1,5 @@
 import tensorflow as tf
+import numpy as np
 from nn import define_model, params
 from feature_embedding import data_load, embedding
 
