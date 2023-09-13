@@ -25,6 +25,7 @@ def define_model():
     return model
 
 def params(T):
+  T+=1
   x=np.arange(0.01, np.pi/2-0.01, (np.pi/2-0.02)/T)
   b=np.sin(x)
   a=1-b
