@@ -21,7 +21,7 @@ def sample(a, b, a_, b_, T):
         coord = list(poly.exterior.coords)
         edges.append(len(coord)-1)
         for j in range(len(coord)-1):
-            coords.append(coord)
+            coords.append(coord[j])
         rm = G.nodes[i]['room_type']
         rms.append(rm)
     coords=np.array(coords)
