@@ -27,11 +27,12 @@ def define_model():
 def params(T):
   T+=1
   x=np.arange(0, np.pi/2, np.pi/(T*2))
-  a_=np.cos(x)
-  b_=1-a_
-  a=np.zeros(T)
-  for i in range(T-1):
-      a[i+1]=a_[i+1]/a_[i]
+  a=np.cos(x)
   b=1-a
+  a_=np.zeros(T)
+  a_[0]=a[0]
+  for i in range(T-1):
+      a_[i+1]=a[i+1]*a_[i]
+  b_=1-a_
   return a, b, a_, b_
   
