@@ -103,7 +103,7 @@ def visialaze(coords, rms, edges, n):
   image.save('/Users/satomotoki/Desktop/output/file.png')
 
 def main():
-  T=100
+  T=1000
   a, b, a_, b_=params(T)
   for num in range(1):
     sample(a, b, a_, b_, T)
