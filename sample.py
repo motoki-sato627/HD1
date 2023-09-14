@@ -30,6 +30,7 @@ def sample(a, b, a_, b_, T):
       t=T-t
       features=embedding(t, coords, rms, edges, n)
       pre_e=model.predict(features)
+      print(pre_e[0])
       u=np.random.normal(0,1,(coords.shape[0], 2))
       if t==1:
         coords=(coords-pre_e*b[t]/np.sqrt(b_[t]))
